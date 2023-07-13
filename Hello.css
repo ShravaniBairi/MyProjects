@@ -1,0 +1,80 @@
+
+.heading3 {
+    background-color: rgb(51, 30, 30);
+    border: 10px solid rgb(103, 103, 190);
+    
+
+
+}
+#Header {
+    display:flex;
+    justify-content: space-between;
+    flex-wrap : wrap;
+    border: 5px solid rgb(70, 33, 33);
+    padding: 10px
+}
+#id {
+    width: 100
+}
+.Nav-tags > ul {
+    list-style-type: none;
+    display : 10px flex;
+    justify-content: space-between;
+    padding: 10px;   
+    background-color: blanchedalmond;
+    
+}
+.Nav-tags >ul>li{
+    display: inline;
+    justify-content : 10px space-between;
+    padding :5px;
+    border: 1px solid black;
+}
+
+
+.RestuarantList {
+    
+    width : 200px;
+    border : 10px solid saddlebrown;
+    
+    
+    
+}
+.RestuarantList > ul{
+    list-style-type: none;
+    margin : 0;
+    
+    
+
+}
+
+.RestuarantList > img {
+    
+    
+    height : 200;
+    width : 100%
+
+
+
+}
+.RestuarantList > ul > li:first-child {
+     padding: 5px;
+    /* background-image:linear-gradient(rgb(194, 134, 134));
+    font : italic bold;
+    flex-wrap: wrap;
+    size: 12;  */
+    
+    background: #cce5ff;
+  color: darkblue;
+  margin: 5px;
+  border: 2px solid black;
+}
+#cardlist {
+    background-color: rgb(122, 105, 105);
+    display : flex;
+    justify-content : space-between;
+    flex-wrap: wrap;
+    
+}
+
+

@@ -3,19 +3,13 @@ import ReactDOM from "react-dom/client";
 import Header from "./Components/Header";
 import RestuarantList from "./Components/RestuarantList";
 import { RestuarantCards } from "./Constants";
-import {useState} from "react";
+import {useState, useEffect } from "react";
+import Shimmer from "./Components/ShimmerUI";
 
-
-/***
- * Added
- * SEARCH BAR
- * SEARCH BUTTON
- * USED useState variables 
- */
 
 /**
  * 
- * CREATING MULTIPLE VARIABLES(OBJECT) AND RENDERING IT 
+ * CREATING MULTIPLE VARIABLES(OBJECT) AND RENDERING IT in JavaScript
  * 
  * const heading1 = React.createElement("h2", {id : "heading1"}, "hello" );
  * const heading2 = React.createElement("h2", {id : "heading2"}, "Shravani");
@@ -25,38 +19,6 @@ import {useState} from "react";
  * 
  */
 
-/**
- * 
- * FUNCTIONAL COMPONENTS (normal functions)
- * 
- * const Fun= () =>
- *  {
- *  return(
- *      <react.fragment> 
- *          Whole code which function returns should be inside single parent 
- *      <react.fragment/>
- *         );
- *  };
- * 
- */
-
-// const Header = () =>
-// {
-//     return(
-//         <div id="Header">
-//         <img style ={{width : 200}}  alt= "Taste It Logo" src="https://cdn.dribbble.com/users/973570/screenshots/3221413/media/5aa404f7d6fdf72e7af2b28f14bb27c8.png"></img>
-
-//         <div className = "Nav-tags">
-//         <ul>
-//             <li>Home</li>
-//             <li>About</li>
-//             <li>Contact</li>
-//             <li>cart</li>
-//         </ul>
-//         </div>
-//         </div>
-//     );
-// };
 
 function filterRestuarant(searchText, restuarants) {  
   const nameLower= searchText.toLowerCase()
@@ -65,10 +27,25 @@ function filterRestuarant(searchText, restuarants) {
   return(data);
 };
 const Body = () => {
-  const [searchText, setSearchText] = useState("kfc");
-  const [restuarants, setSearchButton] = useState(RestuarantCards);
+  const [searchText, setSearchText] = useState("");
+  const [restuarants, setSearchButton] = useState([]);
 
-    return (
+  useEffect(() => {
+    console.log("Call this ehen the dependent array changes")
+    getRestuarants()
+  }, [])
+
+  async function getRestuarants() {
+    const data = await fetch("https:www.swiggy.com/dapi/restaurants/list/v5?lat=12.985048153623557&lng=77.7553192153573&page_type=DESKTOP_WEB_LISTING");
+    const Json = await data.json();
+    //console.log(Json?.data?.cards[2]?.data?.data?.cards);
+    setSearchButton(Json?.data?.cards[2]?.data?.data?.cards) 
+
+}
+
+  //https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.985048153623557&lng=77.7553192153573&page_type=DESKTOP_WEB_LISTING
+
+    return (restuarants.length === 0) ? <Shimmer /> : (
       <>
       <div className = "SearchContainer">
         <input type="text" className = "searchInput" placeholder="Search for Restuarant" value={searchText} 

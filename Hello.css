@@ -77,4 +77,18 @@
     
 }
 
+.ShimmerCard {
+
+    width : 200px;
+   height : 100%;
+    background-color : rgb(180, 173, 173);
+    border : 10px solid rgb(46, 38, 38);
+    margin: 5px;
+   display : flex;
+   flex-wrap : wrap;
+
+
+
+}
+
 

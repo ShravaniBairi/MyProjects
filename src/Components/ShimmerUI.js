@@ -1,8 +1,14 @@
 const Shimmer = () =>{
     return(
-        <>
-            <h2>Shimmer UI .......</h2>
-        </>
-    )
-}
+        <div className = "RestuarantList">
+        {Array(20)
+        .fill("")
+        .map((e, index)=>(<div key={index} className = "ShimmerCard"></div>))};
+
+
+        </div>
+            
+     
+    );
+};
 export default Shimmer

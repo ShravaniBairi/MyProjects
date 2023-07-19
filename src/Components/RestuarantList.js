@@ -7,7 +7,7 @@ const RestuarantList =({cloudinaryImageId, name, cuisines, area, totalRatingsStr
         
 
 
-        <div className = "RestuarantList">
+        <div className = "Cards">
         <img  src={ cloudinaryImageUrl + cloudinaryImageId}></img>
         <ul className = "CII">
             <li >{name }</li>

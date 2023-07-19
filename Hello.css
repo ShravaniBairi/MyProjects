@@ -1,92 +1,96 @@
 
-.heading3 {
-    background-color: rgb(51, 30, 30);
-    border: 10px solid rgb(103, 103, 190);
-    
 
-
-}
 #Header {
     display:flex;
     justify-content: space-between;
     flex-wrap : wrap;
-    border: 5px solid rgb(70, 33, 33);
+    border: 3px solid rgb(73, 31, 31);
     padding: 10px
 }
-#id {
+ #image {
     width: 100
-}
+} 
 .Nav-tags > ul {
     list-style-type: none;
-    display : 10px flex;
+    display : flex;
     justify-content: space-between;
     padding: 10px;   
-    background-color: blanchedalmond;
+    background-color: rgb(168, 165, 159);
     
 }
 .Nav-tags >ul>li{
     display: inline;
-    justify-content : 10px space-between;
+    justify-content : space-between;
     padding :5px;
     border: 1px solid black;
 }
 
 
-.RestuarantList {
+.Cards {
     
-    width : 200px;
-    border : 10px solid saddlebrown;
+    width : 250px;
+    height: 400px;
+    border : 2px solid black;
+    flex-wrap: wrap;
+    display : flex;
+    margin: 2px;
+    
     
     
     
 }
-.RestuarantList > ul{
+.Cards > ul{
     list-style-type: none;
-    margin : 0;
-    
+    margin : 2px;
+    justify-items: space-between;
+    flex-wrap: wrap;
+
     
 
 }
 
-.RestuarantList > img {
-    
-    
+.Cards > img {
     height : 200;
-    width : 100%
-
-
+    width : 96%;
+    
+    margin: 5px ;
 
 }
-.RestuarantList > ul > li:first-child {
-     padding: 5px;
+.Cards > ul > li:first-child {
+     /* padding: 3px; */
     /* background-image:linear-gradient(rgb(194, 134, 134));
     font : italic bold;
     flex-wrap: wrap;
     size: 12;  */
     
     background: #cce5ff;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style:normal bold;
   color: darkblue;
-  margin: 5px;
+  margin: 3px;
   border: 2px solid black;
 }
 #cardlist {
-    background-color: rgb(122, 105, 105);
     display : flex;
-    justify-content : space-between;
     flex-wrap: wrap;
+   
+   
     
 }
+.ShimmerList {
+    display : flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
+}
 .ShimmerCard {
 
-    width : 200px;
-   height : 100%;
-    background-color : rgb(180, 173, 173);
-    border : 10px solid rgb(46, 38, 38);
-    margin: 5px;
-   display : flex;
-   flex-wrap : wrap;
-
+    
+    height: 400px;
+    width : 250px;
+    background-color: rgb(202, 204, 206);
+    border: 5px solid rgb(122, 117, 117);
+    margin: 1px;
 
 
 }

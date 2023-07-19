@@ -1,10 +1,11 @@
 import logo from "../assets/img/food_ordering_logo.jpg";
 
+
 const Header = () =>
 {
     return(
         <div id="Header">
-        <img style ={{width : 200}}  alt= "Taste It Logo" src={logo}></img>
+        <img id = "image" alt= "Taste It Logo" src={logo}></img>
 
         <div className = "Nav-tags">
         <ul>

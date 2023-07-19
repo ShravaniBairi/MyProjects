@@ -1,4 +1,4 @@
-const AboutUs = () => {
+const About = () => {
     return(
         <div>
             <h1>About Food ordering App</h1>

@@ -1,4 +1,5 @@
 import logo from "../assets/img/food_ordering_logo.jpg";
+import { Link } from "react-router-dom"
 
 
 const Header = () =>
@@ -9,10 +10,10 @@ const Header = () =>
 
         <div className = "Nav-tags">
         <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Contact</li>
-            <li>cart</li>
+            <li><Link to ="/">Home</Link></li>
+            <li><Link to ="/About">About</Link></li>
+            <li><Link to ="/Contact">Contact</Link></li>
+            <li><Link to ="/Cart">cart</Link></li>
         </ul>
         </div>
         </div>

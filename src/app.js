@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Header from "./Components/Header";
 import Body from "./Components/Body";
 import Footer from "./Components/Footer";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import About from "./Components/About";
-import Error from "./Components/Error";
 import Contact from "./Components/Contact";
 import Cart from "./Components/Cart";
+import Error from "./Components/Error";
 import RestuarantMenu from "./Components/RestuarantMenu";
 
 
@@ -17,7 +17,6 @@ const WholePageLayout = () =>{
     return(
         <>
             <Header/>
-            {/* <Body/> */}
             <Outlet/>
             <Footer/>
         </>

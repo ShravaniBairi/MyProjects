@@ -2,44 +2,19 @@ import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import { cloudinaryImageUrl } from "../Constants"
 import Shimmer from "./ShimmerUI"
+import useRestuarantMenu from "../utils/useRestuarantMenu";
 
-const restuarantMenuCard = ({imageId, category, description, ratings}) => {
-    return(
-        <div>
-            {/* <h2>{name}</h2> */}
-            <img src = {cloudinaryImageUrl + imageId} />
-            <h3>{category}</h3>
-            <h3>{description}</h3>
-            <h3>{ratings.aggregatedRating.ratingCountV2+" "+ratings.aggregatedRating.rating+"* ratings"}</h3>
-        </div>
-    )
 
-}
 
 const RestuarantMenu = () => {
     const params = useParams(); //reads the url and gives the id 
    
     const { resid } = params;
 
-    useEffect(() => {
-        getRestuarantMenu();
-
-    },[])
-
-    const [restuarantMenu, setRestuarantMenu] = useState({});
-    async function getRestuarantMenu(){
-
-    
-        const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.385044&lng=78.486671&restaurantId="+ resid);
-        const json = await data?.json();        
-        console.log(json)
-        setRestuarantMenu(json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards);
-
-    }
+    const restuarantMenu = useRestuarantMenu(resid);
    
     return (
-        <div>
-        
+        <div>        
         <div id= "restuarantMenu">
           
             <ul>

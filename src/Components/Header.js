@@ -16,6 +16,7 @@ const Header = () =>
             <li><Link to ="/Cart">cart</Link></li>
         </ul>
         </div>
+        
         </div>
     );
     

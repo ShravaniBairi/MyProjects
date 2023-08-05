@@ -4,9 +4,12 @@ import { Link } from "react-router-dom"
 
 const Header = () =>
 {
+    
+   
     return(
         <div id="Header">
         <img id = "image" alt= "Taste It Logo" src={logo}></img>
+        
 
         <div className = "Nav-tags">
         <ul>

@@ -4,6 +4,7 @@ import Shimmer from "./ShimmerUI";
 import RestuarantList from "./RestuarantList";
 import {Link} from "react-router-dom";
 import {filterRestuarant} from "../utils/Helper.js"
+import useOnline from "../utils/useOnline"
 
 
 
@@ -11,6 +12,8 @@ const Body = () => {
     const [searchText, setSearchText] = useState("");
     const [restuarants, setRestuarants] = useState([]);
     const [filteredRestuarants, setfilteredRestuarants] = useState([]);
+
+    const isOnline = useOnline();
   
     useEffect(() => {
       getRestuarants()
@@ -26,6 +29,9 @@ const Body = () => {
       
   
     }
+ 
+    if(!isOnline) 
+    return <h2>🤔You are Offline...Please check your internet connection</h2>
 
     if(!restuarants) return null;
     if(restuarants?.length === 0) 

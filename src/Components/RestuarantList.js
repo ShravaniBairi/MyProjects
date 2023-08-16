@@ -24,4 +24,18 @@ const RestuarantList =({cloudinaryImageId, name, cuisines, area, totalRatingsStr
     );
 };
 
+export const withPromotedLable = (RestuarantList) =>
+ { 
+    return (props) => {
+        return(
+        <>
+            <h4>promoted</h4>
+            <RestuarantList {...props}/>
+        </>
+        )
+    }
+}
+
+
+
 export default RestuarantList

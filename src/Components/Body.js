@@ -1,7 +1,7 @@
 import { RestuarantCards } from "../Constants";
 import {useState, useEffect } from "react";
 import Shimmer from "./ShimmerUI";
-import RestuarantList from "./RestuarantList";
+import RestuarantList, {withPromotedLable} from "./RestuarantList";
 import {Link} from "react-router-dom";
 import {filterRestuarant} from "../utils/Helper.js"
 import useOnline from "../utils/useOnline"
@@ -13,6 +13,8 @@ const Body = () => {
     const [restuarants, setRestuarants] = useState([]);
     const [filteredRestuarants, setfilteredRestuarants] = useState([]);
 
+    const PromotedRestuarantCard = withPromotedLable(RestuarantList);
+
     const isOnline = useOnline();
   
     useEffect(() => {
@@ -21,15 +23,15 @@ const Body = () => {
   
     async function getRestuarants() 
     {
-      const data = await fetch("https:www.swiggy.com/dapi/restaurants/list/v5?lat=12.985048153623557&lng=77.7553192153573&page_type=DESKTOP_WEB_LISTING");
+      const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.985042599677715&lng=77.7553403377533&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
       const Json = await data.json();
-      console.log(Json);
+      console.log(Json)
       setRestuarants(Json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
       setfilteredRestuarants(Json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants) 
-      
+      console.log(restuarants);
   
     }
- 
+
     if(!isOnline) 
     return <h2>🤔You are Offline...Please check your internet connection</h2>
 
@@ -64,7 +66,11 @@ const Body = () => {
           <div id= "cardlist">
           {
             filteredRestuarants.map((restuarant) => {
-          return <Link to = {"/Restuarant/"+restuarant?.info?.id} key={restuarant?.info?.id}><RestuarantList {...restuarant?.info } /></Link>
+          return <Link to = {"/Restuarant/"+restuarant?.info?.id} key={restuarant?.info?.id}>
+          {restuarant.info.aggregatedDiscountInfoV3.header ? ( 
+            <PromotedRestuarantCard {...restuarant?.info }/> ) : ( <RestuarantList {...restuarant?.info } /> ) }
+          
+          </Link>
             })
           }
 

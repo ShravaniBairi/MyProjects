@@ -77,6 +77,15 @@
    
     
 }
+#restuarantMenu{
+    position : absolute;
+    left : 400;
+    
+    width : 50%;
+    height : 100px;
+
+}
+
 .ShimmerList {
     display : flex;
     flex-wrap: wrap;

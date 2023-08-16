@@ -15,7 +15,7 @@ const RestuarantMenu = () => {
    
     return (
         <div>        
-        <div id= "restuarantMenu">
+        <div id= "restuarantMenu" >
           
             <ul>
                 {Object.values(restuarantMenu).map((items) => (
@@ -24,7 +24,7 @@ const RestuarantMenu = () => {
                 <div>
 
                 <h2>{items?.card?.info?.name}</h2>
-                <img src = {cloudinaryImageUrl + items?.card?.info?.imageId} style = {{height : 200}} />
+                <img src = {cloudinaryImageUrl + items?.card?.info?.imageId} style = {{height : 100}} />
                 <h4>{items?.card?.info?.category}</h4>
                 <h4>{items?.card?.info?.description}</h4>
                 <h4>{items?.card?.info?.ratings?.aggregatedRating?.ratingCountV2+" "+items?.card?.info?.ratings?.aggregatedRating?.rating+"* ratings"}</h4>
